@@ -3181,6 +3181,7 @@ MOD_INLINELIST = {
     "torch._dynamo.comptime",
     "torch._dynamo.polyfill",
     "torch._functorch.vmap",
+    "torch._library.define",
     "torch._functorch.eager_transforms",
     "torch._inductor.test_operators",
     "torch.amp.autocast_mode",
