@@ -1363,6 +1363,8 @@ if(NOT INTERN_BUILD_MOBILE)
   endif()
 endif()
 
+target_link_libraries(torch_cpu PUBLIC mimalloc)
+
 if($ENV{TH_BINARY_BUILD})
   if(NOT MSVC AND USE_CUDA AND NOT APPLE)
     # Note [Extra MKL symbols for MAGMA in torch_cpu]

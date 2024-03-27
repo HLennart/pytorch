@@ -13,6 +13,13 @@ if(NOT BUILD_PYTHON)
   return()
 endif()
 
+find_package(mimalloc)
+
+target_link_libraries(torch PRIVATE mimalloc)
+add_dependencies(torch mimalloc)
+
+target_link_libraries(torch_cpu PRIVATE mimalloc)
+
 set(TORCH_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(TORCH_ROOT "${TORCH_SRC_DIR}/..")
 

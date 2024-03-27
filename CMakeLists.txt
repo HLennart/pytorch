@@ -352,11 +352,9 @@ cmake_dependent_option(
 cmake_dependent_option(
     BUILD_BUNDLE_PTXAS "Bundle PTX into torch/bin fodler" OFF "USE_CUDA" OFF)
 
-option(USE_MIMALLOC "Use mimalloc" OFF)
+option(USE_MIMALLOC "Use mimalloc" ON)
 # Enable third party mimalloc library to improve memory allocation performance on Windows.
-if(WIN32)
-  set(USE_MIMALLOC ON)
-endif()
+
 
 if(USE_CCACHE)
   find_program(CCACHE_PROGRAM ccache)
@@ -1054,9 +1052,9 @@ include_directories(BEFORE ${PROJECT_SOURCE_DIR}/aten/src/)
 include_directories(BEFORE ${CMAKE_BINARY_DIR}/aten/src/)
 
 if(USE_MIMALLOC)
-  set(MI_OVERRIDE OFF)
-  set(MI_BUILD_SHARED OFF)
-  set(MI_BUILD_OBJECT OFF)
+  set(MI_OVERRIDE ON)
+  set(MI_BUILD_SHARED ON)
+  set(MI_BUILD_OBJECT ON)
   set(MI_BUILD_TESTS OFF)
   add_definitions(-DUSE_MIMALLOC)
   add_subdirectory(third_party/mimalloc)

@@ -13,6 +13,8 @@
 #include <cstddef>
 #include <tuple>
 
+#include "mimalloc-new-delete.h"
+
 namespace torch {
 namespace nn {
 namespace init {
